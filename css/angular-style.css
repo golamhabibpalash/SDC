@@ -1,0 +1,23 @@
+body{
+    background:#002728 url("../img/bg-angular-body.jpg");
+  background-repeat: repeat;
+}
+.header-top{
+    margin-bottom: 0px;
+    padding-bottom: 2%;
+    position: relative;
+}
+.header-top img{
+    position: absolute;
+    width:10%;
+    opacity: 0.2;
+}
+.navbar{
+    margin-bottom: 0;
+}
+.body{
+    background: wheat;
+}
+.navbar-brand img{
+    height: 150%;
+}
