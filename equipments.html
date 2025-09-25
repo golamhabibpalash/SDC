@@ -116,76 +116,19 @@
             <div class="row" style="height:500px">
                 <div class="" >
                     <div>
-                        <Table class="table table-hover">
+                        <Table class="table table-hover" id="equipmentsTable">
                             <thead>
                                 <tr>
                                     <td>Item</td>
                                     <td>Picture of Equipment</td>
-                                    <td>Model & Serial No.</td>                                    		
+                                    <td>Model & Serial No.</td>  
+                                    <td>Manufacturer</td>                                  		
                                     <td>Purchasing Year	</td>
-                                    <td>Manufacturer</td>
+                                    <td>Status	</td>
                                 </tr>
                             </thead>
-                            <tbody id="equipment_table_body">
-                                <tr>
-                                    <td rowspan="2">RTK GNSS Receiver</td>
-                                    <td>
-                                        <img style="width: 150px;" src="img/Equiptments/rtk gnss receiver.jpg" alt="">
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li>GR5 (04 Receiver with 02 controller) - 02 sets</li>
-                                            <li>SN: 1118-23015</li>
-                                            <li>SN: 1118-23013</li>
-                                            <li>SN: 1118-21699</li>
-                                            <li>SN: 1118-21726</li>
-                                        </ul>
-                                    </td>                                    		
-                                    <td>
-                                        2017 & 2019	
-                                    </td>
-                                    <td>
-                                        TOPCON Corporation.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img style="width: 150px;" src="img/Equiptments/rtk gnss receiver2.jpg" alt="">
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            DG-PRO1RWX (12 Receiver)
-                                            SN: C22060100018
-                                            SN: C22060100024
-                                            SN: C22078016625
-                                            SN: C22078016629
-                                        </ul>
-                                    </td>                                    		
-                                    <td>
-                                        2022
-                                    </td>
-                                    <td>
-                                        DJI
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>LiDAR</td>
-                                    <td>
-                                        <img style="width: 150px;" src="img/Equiptments/LiDAR.png" alt="">
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <b>Zenmuse L1 LiDAR</b> 
-                                            <li>SN: 3FCDJ8L004JSV2</li>
-                                        </ul>
-                                    </td>                                    		
-                                    <td>
-                                        2022
-                                    </td>
-                                    <td>
-                                        DJI
-                                    </td>
-                                </tr>
+                            <tbody >
+                                
                             </tbody>
 
                         </Table>
@@ -319,12 +262,31 @@
 
 </body>
 <script>
-    
-   
-    
+    $(document).ready(function () {
+      $.get('equipments.csv', function (data) {
+        let rows = data.trim().split('\n');
+        rows.shift(); // remove header row
+        let tbody = $("#equipmentsTable tbody");
 
-   let eBody = document.getElementById('equipment_table_body');
-   console.log(eBody);
+        rows.forEach(function (line) {
+          let cols = line.split(',');
+          let row = `
+            <tr>
+              <td>${cols[0]}</td>
+              <td><img src="img/equipments/${cols[1].trim()}" alt="${cols[0]}"></td>
+              <td>${cols[2]}</td>
+              <td>${cols[3]}</td>
+              <td>${cols[4]}</td>
+              <td>${cols[5]}</td>
+            </tr>
+          `;
+          tbody.append(row);
+        });
+
+        $("#loading").hide();
+        $("#equipmentsTable").show();
+      });
+    });
 </script>
 
 </html>
