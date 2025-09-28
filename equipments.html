@@ -34,6 +34,10 @@
         .carousel-item img {
             height: 400px;
         }
+        .equipment_img img{            
+            height: 100px;
+            width: auto;
+        }
     </style>
 
 </head>
@@ -273,7 +277,7 @@
           let row = `
             <tr>
               <td>${cols[0]}</td>
-              <td><img src="img/Equipments/${cols[1].trim()}" alt="${cols[0]}"></td>
+              <td class="equipment_img"><img src="img/Equipments/${cols[1].trim()}" alt="${cols[0]}"></td>
               <td>${cols[2]}</td>
               <td>${cols[3]}</td>
               <td>${cols[4]}</td>
