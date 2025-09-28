@@ -1,1 +1,7 @@
-﻿Name,Image,Model,Origin,Year,Status
+﻿Name,Image,Model,Origin,Year,Status,Quantity
+RTK GPS,GR5.jpg,Topcon GR 5,Japan,2017,Good,4 Receiver
+RTK GPS,Drogger.jpg,DG Pro RWX,Japan,2022,Good,12 Receiver
+LiDAR,DJIL1.jpg,DJI L1,China,2022,Good,1 nos.
+Drone,Matrice300.jpg,DJI Matrice 300 RTK ,China,2022,Good,1 nos.
+Drone,Mavic3E.jpg,DJI Mavic 3 Enterprise,China,2024,Good,1 nos.
+Drone,DJIAir2S.jpg,DJI Air 2S,China,2024,Good,1 nos.
